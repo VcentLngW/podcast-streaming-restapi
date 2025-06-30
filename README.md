@@ -81,15 +81,44 @@ restAPI/
    # Edit .env with your configuration
    ```
 
-5. **Initialize database**
+5. **Run setup script (optional but recommended)**
+   ```bash
+   python setup.py
+   ```
+
+6. **Initialize database**
    ```bash
    flask db upgrade
    ```
 
-6. **Run the application**
+7. **Run the application**
    ```bash
    python run.py
    ```
+
+## Quick Server Setup
+
+For quick deployment on a server:
+
+```bash
+# Clone and setup
+git clone <repository-url>
+cd restAPI
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+# Configure environment
+cp env.example .env
+# Edit .env with your server configuration
+
+# Run setup and initialize
+python setup.py
+flask db upgrade
+
+# Start the application
+python run.py
+```
 
 ## Environment Variables
 

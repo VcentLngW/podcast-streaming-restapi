@@ -39,9 +39,15 @@ def create_app():
     app.config['MAIL_USE_TLS'] = True
     app.config['MAIL_USE_SSL'] = False
 
-    # Configure upload folder
+    # Configure upload folder and ensure directories exist
     app.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'uploads')
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+    os.makedirs(os.path.join(app.config['UPLOAD_FOLDER'], 'audio'), exist_ok=True)
+    os.makedirs(os.path.join(app.config['UPLOAD_FOLDER'], 'thumbnails'), exist_ok=True)
+
+    # Ensure instance directory exists for SQLite database
+    instance_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'instance')
+    os.makedirs(instance_path, exist_ok=True)
 
     # Initialize extensions with app
     db.init_app(app)
