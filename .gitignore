@@ -68,8 +68,12 @@ logs/
 # Uploads (keep the folder structure but ignore files)
 uploads/audio/*
 uploads/thumbnails/*
+app/uploads/audio/*
+app/uploads/thumbnails/*
 !uploads/audio/.gitkeep
 !uploads/thumbnails/.gitkeep
+!app/uploads/audio/.gitkeep
+!app/uploads/thumbnails/.gitkeep
 
 # Alembic
 migrations/versions/*.py
